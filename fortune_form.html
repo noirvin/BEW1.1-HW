@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Fortune Teller</title>
+    </head>
+    <body>
+        <h2>I'm gonna get some info from you and tell your fortune</h2>
+        <form method='GET' action='/fortune_results'>
+        <p>
+            What's your name?
+            <input type="text" name='name'><br><br>
+            How old are you?
+            <input type="number" name='age'><br><br>
+            What is your favorite genre of music?
+            <select name="genre" id="genre_type">
+                <option value="Rock">Rock</option>
+                <option value="EDM">Electronic Dance Music</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Classical">Classical</option>
+            </select><br><br>
+            What is your favorite planet?<br>
+            <input type="radio" name="planet" value="Mars">Mars<br>
+            <input type="radio" name="planet" value="Krypton">Krypton<br>
+            <input type="radio" name="planet" value="Pluto">Pluto(who told you it's not a planet?)<br>
+            <input type="radio" name="planet" value="Earth">Mother Earth<br><br>
+            Which of these apps do you use everyday? Choose all that apply.<br>
+            <input type="checkbox" name="app1" value="YT">YouTube<br>
+            <input type="checkbox" name="app2" value="Slack">Slack<br>
+            <input type="checkbox" name="app3" value="Venmo">Venmo<br>
+            <input type="checkbox" name="app4" value="MealPal">MealPal<br>
+        </p>
+        <button id="submit" type="submit">Submit</button>
+        </form>
+    </body>
+</html>
