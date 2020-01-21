@@ -57,6 +57,34 @@ def fortune_results():
     fortune = random_greeting+genre_fortune+planet_fortune+app_fortune
 
     return render_template('fortune_results.html', fortune=fortune)
+@app.route('/weather')
+def get_weather():
+    return render_template('weather_form.html')
+
+@app.route('/weather_results', methods=['GET'])
+def weather_results_page():
+    if request.method == "GET":
+        users_city = request.args.get('city')
+        params = {
+            'q': users_city,
+            'appid': '41f6784fa9f84526f0d6dd90647897bf'
+
+        }
+        response = requests.get('http://api.openweathermap.org/data/2.5/weather', params=params)
+        json = response.json()
+        city = json['name']
+        temp = json['main']['temp']
+        celsius_temp = convert_to_celsius(temp)
+
+        return render_template('weather_results.html', city=city, celsius_temp=celsius_temp)
+def convert_to_celsius(kelvin_temp):
+
+    celsius_temp = kelvin_temp-273.15
+
+    return celsius_temp
+
+
+
 
 if __name__ == '__main__':
     app.run()
